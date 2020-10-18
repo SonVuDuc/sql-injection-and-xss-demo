@@ -36,6 +36,33 @@ Truy cập vào địa chỉ http://localhost/phpmyadmin/ để kiếm tra MySQL
 
 ![Screenshot from 2020-10-18 16-20-46](https://user-images.githubusercontent.com/32956424/96363349-e7971100-115d-11eb-8b18-a9a2307c9092.png)
 
+Tiến hành pull web mẫu trên github bằng lệnh 
+
+```
+git clone https://github.com/FrancescoBorzi/sql-injection-demo.git
+```
+Truy cập vào trang chủ thông qua địa chỉ http://localhost/sql-injection-demo/index.php
+
+![Screenshot from 2020-10-18 16-26-15](https://user-images.githubusercontent.com/32956424/96363446-ab17e500-115e-11eb-9625-53e14ee45320.png)
+
+Đăng nhập thông qua mục **Standard Login**, chọn phần **Vulnerable**
+
+![Screenshot from 2020-10-18 16-28-02](https://user-images.githubusercontent.com/32956424/96363487-ed412680-115e-11eb-86a0-392b5a69db13.png)
+
+Trang web mẫu sẽ hiện ra truy vấn MySQL để tiện cho việc xem xét SQL Injection
+
+![Screenshot from 2020-10-18 16-28-02](https://user-images.githubusercontent.com/32956424/96363487-ed412680-115e-11eb-86a0-392b5a69db13.png)
+
+#### Case 1: Đăng nhập với username mà không cần password
+
+Nếu hacker biết được username của một user, có thể là người dùng bình thường hoặc quản trị viên. Với lỗ hổng SQL Injection, hacker có thể dễ dàng đăng nhập với username đã biết mà không cần password.
+
+Ví dụ username đã biết ở đây là **admin**. Hacker sẽ truyền vào chuỗi ```' OR '1'='1'; -- ```
+
+![Screenshot from 2020-10-18 16-32-49](https://user-images.githubusercontent.com/32956424/96363590-96881c80-115f-11eb-9b4a-8820c34ed12d.png)
+
+Hacker đã đăng nhập thành công với tư cách là admin. Trong mục **Query Executed** thấy rằng truy vấn đã thực hiện việc truy vấn. Điều kiện password là **''** hoặc **'1'='1'**
+
 
 
 
