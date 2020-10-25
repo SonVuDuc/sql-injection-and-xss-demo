@@ -69,7 +69,8 @@ curl -k https://127.0.0.1:13443
 ```
 Sau khi cài đặt xong, truy cập vào Acunetix qua địa chỉ https://127.0.0.1:13443
 
-![ubuntu20 04-2020-10-25-15-21-12](https://user-images.githubusercontent.com/32956424/97102148-cb532100-16d5-11eb-979a-4447d5106574.png)
+![ubuntu20 04-2020-10-25-15-24-43](https://user-images.githubusercontent.com/32956424/97102211-40265b00-16d6-11eb-8cb0-1a093ffe2cdc.png)
+
 
 
 ### Cài đặt Burp Suite
@@ -84,6 +85,22 @@ sudo apt install default-jdk
 ```
 
 Truy cập vào link http://portswigger.net/burp/download.html để download Burp Suite. Sau khi download, chạy file .JAR này để bắt đầu.
+
+![ubuntu20 04-2020-10-25-15-23-17](https://user-images.githubusercontent.com/32956424/97102218-503e3a80-16d6-11eb-8cd4-6025ae60c7f9.png)
+
+Chọn next để tiếp tục 
+
+![ubuntu20 04-2020-10-25-15-23-42](https://user-images.githubusercontent.com/32956424/97102226-5f24ed00-16d6-11eb-86b0-d4bc1c998f2d.png)
+
+
+Chọn next để tiếp tục 
+
+![ubuntu20 04-2020-10-25-15-23-46](https://user-images.githubusercontent.com/32956424/97102231-6a781880-16d6-11eb-9fd5-40faab0dc669.png)
+
+Giao diện của Burp Suite
+
+![ubuntu20 04-2020-10-25-15-24-04](https://user-images.githubusercontent.com/32956424/97102238-7368ea00-16d6-11eb-83f1-8db17190d5f8.png)
+
 
 
 
