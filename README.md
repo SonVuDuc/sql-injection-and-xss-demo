@@ -21,9 +21,11 @@ SQL Injectiton có thể gây ra:
   + Hệ điều hành: Ubuntu 20.04 Desktop
   + XAMPP (Tải về và cài đặt tại https://www.apachefriends.org/download.html)
   + Github
+  + Acunetix
+  + Sqlmap
+  + Burp Suite
 
-### 2.2. Demo SQL Injection
-
+### Cài đặt XAMPP
 Tiến hành cài đặt XAMPP để tạo web server và cơ sở dữ liệu. Start các dịch vụ của XAMPP
 
 ![Screenshot from 2020-10-18 16-16-27](https://user-images.githubusercontent.com/32956424/96363269-63dd2480-115d-11eb-958f-98a5f3352dc5.png)
@@ -35,6 +37,12 @@ Truy cập vào địa chỉ http://localhost để kiểm tra XAMPP đã hoạt
 Truy cập vào địa chỉ http://localhost/phpmyadmin/ để kiếm tra MySQL
 
 ![Screenshot from 2020-10-18 16-20-46](https://user-images.githubusercontent.com/32956424/96363349-e7971100-115d-11eb-8b18-a9a2307c9092.png)
+
+### Cài đặt Acunetix
+
+### Cài đặt Burp Suite
+
+### 2.2. Demo SQL Injection
 
 Tiến hành pull web mẫu trên github bằng lệnh 
 
@@ -74,19 +82,6 @@ Trong trường hợp hacker không biết trước username như **case 1**. Ha
 Đăng nhập thành công với username **' or '1'='1'; -- **
 
 ![Screenshot from 2020-10-18 16-41-14](https://user-images.githubusercontent.com/32956424/96363827-ca177680-1160-11eb-84c2-97f98c64cd20.png)
-
-#### Case 3: Đăng nhập và xóa Database
-
-Lỗ hổng SQL Injection còn cho hacker thực thi những truy vấn theo ý muốn
-
-
-
-
-
-
-
-
-
 
 
 ### 2.3. Demo Cross-site Scripting 
