@@ -101,7 +101,11 @@ Giao diện của Burp Suite
 
 ![ubuntu20 04-2020-10-25-15-24-04](https://user-images.githubusercontent.com/32956424/97102238-7368ea00-16d6-11eb-83f1-8db17190d5f8.png)
 
+Burp được thiết kế để sử dụng cùng với trình duyệt. Hoạt động giống như một HTTP proxy server, tất cả HTTP và HTTPS traffic đều sẽ đi qua Burp. Trước khi tiến hành làm việc với Burp, cần cấu hình để trình duyệt để làm việc với Burp 
 
+Tại giao diện của Burp Suite, chọn Proxy -> Option. Trong phần **Proxy Listener**, kiểm tra xem checkbox Running đã được chọn hay chưa, và Interface là 127.0.0.1:8080. Nếu các thông tin không đúng như trên, Add 1 proxy với IP và Port là 127.0.0.1:8080
+
+![ubuntu20 04-2020-10-25-15-39-16](https://user-images.githubusercontent.com/32956424/97102457-474e6880-16d8-11eb-84b3-932dc27703dd.png)
 
 
 ### 2.2. Demo SQL Injection
