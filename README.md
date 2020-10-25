@@ -156,6 +156,46 @@ Quá trình scan sẽ cho thấy mức độ threat
 
 ![ubuntu20 04-2020-10-25-15-57-43](https://user-images.githubusercontent.com/32956424/97102830-4965f680-16db-11eb-8310-0f90ecff8e13.png)
 
+Như vậy là Website có lỗ hổng SQL Injection để khai thác. Thử nhập chuỗi ```' OR 1=1; #``` vào ô username
+
+![ubuntu20 04-2020-10-25-16-03-16](https://user-images.githubusercontent.com/32956424/97102891-c5f8d500-16db-11eb-8e02-434d9b6c0c21.png)
+
+Click View Account Details. Như vậy là đã lấy được toàn bộ thông tin user trong bảng accounts của database
+
+![ubuntu20 04-2020-10-25-16-03-31](https://user-images.githubusercontent.com/32956424/97102893-cc874c80-16db-11eb-973b-26693d0f4e7c.png)
+
+Chuyển sang trang ```mutillidae/index.php?page=sqlmap-targets.php``` , vào mục View Someones Blog
+
+![ubuntu20 04-2020-10-25-16-06-46](https://user-images.githubusercontent.com/32956424/97102975-62bb7280-16dc-11eb-9f44-6794ee1220cd.png)
+
+Trong mục này người dùng có thể xem được blog của bất kỳ ai
+
+![ubuntu20 04-2020-10-25-16-06-53](https://user-images.githubusercontent.com/32956424/97102982-74047f00-16dc-11eb-8874-e4fec3b7f9eb.png)
+
+Trong Burp Suite, chuyển **Intercept** từ **off** sang **on** để có thể bắt các dữ liệu
+
+![ubuntu20 04-2020-10-25-16-07-00](https://user-images.githubusercontent.com/32956424/97102991-88e11280-16dc-11eb-90fe-2cbfd95a2a7e.png)
+
+Khi một người click vào xem blog của bất kỳ ai đó, thì Burp Suite sẽ chặn lại request đó lại, người sử dụng Burp Suite có thể xem, chỉnh sửa request
+
+![ubuntu20 04-2020-10-25-16-07-34](https://user-images.githubusercontent.com/32956424/97103059-e1b0ab00-16dc-11eb-9c56-b349d7d2760d.png)
+
+Tiến hành copy toàn bộ request và paste vào một file txt
+
+![ubuntu20 04-2020-10-25-16-07-54](https://user-images.githubusercontent.com/32956424/97103073-eecd9a00-16dc-11eb-9840-7dfb1d6d7587.png)
+
+![ubuntu20 04-2020-10-25-16-08-24](https://user-images.githubusercontent.com/32956424/97103081-f55c1180-16dc-11eb-9f0f-1857379091d4.png)
+
+Chạy SQLMap, với input là file sample.txt vừa tạo ở trên
+
+
+
+
+
+
+
+
+
 
 
 ### 2.3. Demo Cross-site Scripting 
