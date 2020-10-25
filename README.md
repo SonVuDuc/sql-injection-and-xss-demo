@@ -66,6 +66,7 @@ service acunetix_trial stop
 chattr +i /home/acunetix/.acunetix_trial/data/license/license_info.json
 service acunetix_trial start
 curl -k https://127.0.0.1:13443
+su - acunetix -c "/home/acunetix/.acunetix_trial/ && bash change_credentials.sh"
 ```
 Sau khi cài đặt xong, truy cập vào Acunetix qua địa chỉ https://127.0.0.1:13443
 
@@ -111,11 +112,50 @@ Cần cấu hình trình duyệt để thay đổi proxy. Click vào **Preferenc
 
 ![ubuntu20 04-2020-10-25-15-43-14](https://user-images.githubusercontent.com/32956424/97102530-d8254400-16d8-11eb-9cbb-578db11aff22.png)
 
-Chọn **Manual Proxy Configuration**
+Chọn **Manual Proxy Configuration** và điền IP **127.0.0.1** và Port **8080**
 
 ![ubuntu20 04-2020-10-25-15-43-18](https://user-images.githubusercontent.com/32956424/97102564-21759380-16d9-11eb-8e4d-028305e0ac6d.png)
 
 
+### Cài đặt SQL MAP
+
+Cần cài đặt Python trước để có thể sử dụng sqlmap
+
+```
+sudo apt-get install -y sqlmap
+```
+
 ### 2.2. Demo SQL Injection
+
+Cài đặt website demo của OWASP
+
+```
+docker run -d -p 80:80 -p 443:443 --name owasp17 bltsec/mutillidae-docker
+```
+Truy cập vào trang chủ qua địa chỉ http://127.0.0.1/mutillidae/ 
+
+![ubuntu20 04-2020-10-25-15-55-02](https://user-images.githubusercontent.com/32956424/97102727-76fe7000-16da-11eb-81a9-a130dc34b3ae.png)
+
+Truy cập vào trang login của Mutillidae
+
+![ubuntu20 04-2020-10-25-15-56-52](https://user-images.githubusercontent.com/32956424/97102779-e5dbc900-16da-11eb-97cb-b2678dba3160.png)
+
+Sử dụng Acunetix để scan các lỗ hổng. Bằng cách tạo 1 target để scan, nhập URL trang login của Mutillidae
+
+![ubuntu20 04-2020-10-25-15-57-01](https://user-images.githubusercontent.com/32956424/97102809-20456600-16db-11eb-8ad2-f0faa21a9b64.png)
+
+Click vào nút **Scan**
+
+![ubuntu20 04-2020-10-25-15-57-10](https://user-images.githubusercontent.com/32956424/97102817-2d625500-16db-11eb-84b7-d1cd443d3486.png)
+
+Tại đây có thể tùy chọn Full scan hoặc Scan một lỗ hổng cụ thể
+
+![ubuntu20 04-2020-10-25-15-57-15](https://user-images.githubusercontent.com/32956424/97102825-3e12cb00-16db-11eb-9c4c-9986816dbf90.png)
+
+Quá trình scan sẽ cho thấy mức độ threat 
+
+![ubuntu20 04-2020-10-25-15-57-43](https://user-images.githubusercontent.com/32956424/97102830-4965f680-16db-11eb-8310-0f90ecff8e13.png)
+
+
 
 ### 2.3. Demo Cross-site Scripting 
