@@ -1,22 +1,5 @@
 # Demo SQL Injection và Cross-site Scripting 
-## 1. Giới thiệu về SQL Injection và Cross-site Scripting 
-### 1.1. SQL Injection
-
-SQL Injection là một kỹ thuật lợi dụng những lỗ hổng kiểm tra dữ liệu đầu vào của các ứng dụng web. Kỹ thuật này được thực hiện bằng cách chèn thêm một đoạn SQL để làm sai lệnh đi câu truy vấn ban đầu, từ đó có thể khai thác dữ liệu từ database. SQL injection có thể cho phép hacker thực hiện các thao tác như một người quản trị web, trên cơ sở dữ liệu của ứng dụng.
-
-Ví dụ trong form đăng nhập của trang web, thay vì nhập username và password thông thường, hacker sẽ chèn thêm những câu lệnh SQL bất hợp pháp để lấy dữ liệu của người dùng hoặc dữ liệu database.
-
-SQL Injectiton có thể gây ra:
-  + Hack tài khoản cá nhân
-  + Đánh cắp, sao chép dữ liệu
-  + Thay đổi cấu trúc hoặc xóa cơ sở dữ liệu hệ thống
-  + Hacker có thể đăng nhập với tư cách người dùng khác, thậm chí là quản trị viên
-  + Đánh cắp thông tin cá nhân người dùng 
-
-
-### 1.2. Cross-site Scripting 
-## 2. Demo
-### 2.1. Chuẩn bị
+## 1. Chuẩn bị
 
   + Hệ điều hành: Ubuntu 20.04 Desktop
   + Github
@@ -111,7 +94,7 @@ Cần cài đặt Python trước để có thể sử dụng sqlmap
 sudo apt-get install -y sqlmap
 ```
 
-### 2.2. Demo SQL Injection
+## 2. Demo SQL Injection
 
 Cài đặt website demo của OWASP
 
@@ -199,7 +182,7 @@ Xem chi tiết từng cột, thông tin trong bảng, ví dụ như bảng credi
 ![ubuntu20 04-2020-10-25-16-20-26](https://user-images.githubusercontent.com/32956424/97103275-02c5cb80-16de-11eb-90ef-355e4b4ad33c.png)
 
 
-### 2.3. Demo Cross-site Scripting 
+## 3. Demo Cross-site Scripting 
 
 Truy cập vào trang XSS -> DNS Lookup của Mutillidae
 
