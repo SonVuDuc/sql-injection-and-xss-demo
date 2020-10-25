@@ -214,3 +214,38 @@ Xem chi tiết từng cột, thông tin trong bảng, ví dụ như bảng credi
 
 
 ### 2.3. Demo Cross-site Scripting 
+
+Truy cập vào trang XSS -> DNS Lookup của Mutillidae
+
+![ubuntu20 04-2020-10-25-16-22-29](https://user-images.githubusercontent.com/32956424/97103410-e24a4100-16de-11eb-9a12-f4eeeb2c0a46.png)
+
+Khi một người nhập hostname hoặc IP và click Lookup DNS, Burp Suite sẽ bắt được dữ liệu 
+
+![ubuntu20 04-2020-10-25-16-24-28](https://user-images.githubusercontent.com/32956424/97103454-30f7db00-16df-11eb-9add-2ae8ad283360.png)
+
+Click chuột phải vào request và chọn **Send to Repeater**
+
+![ubuntu20 04-2020-10-25-16-24-36](https://user-images.githubusercontent.com/32956424/97103473-51279a00-16df-11eb-805b-8503d19caa3c.png)
+
+Vào tab **Repeater** và chọn **Params**
+
+![ubuntu20 04-2020-10-25-16-24-44](https://user-images.githubusercontent.com/32956424/97103496-6b617800-16df-11eb-8305-0b707eab292c.png)
+
+Double click và chỉnh sửa **www.google.com** thành ```<script>Alert("Hello")</script>```
+
+![ubuntu20 04-2020-10-25-16-25-09](https://user-images.githubusercontent.com/32956424/97103525-977cf900-16df-11eb-880d-c9e2d29ccbc0.png)
+
+
+Click **Send**, server sẽ trả về 1 repsonse
+
+![ubuntu20 04-2020-10-25-16-25-25](https://user-images.githubusercontent.com/32956424/97103537-a95e9c00-16df-11eb-8bac-305b62a912ee.png)
+
+Click chuột phải vào response. Chọn **Show response in browser**
+
+![ubuntu20 04-2020-10-25-16-25-25](https://user-images.githubusercontent.com/32956424/97103570-d8750d80-16df-11eb-8d60-079a20340291.png)
+
+
+Copy link và paste vào trình duyệt
+
+![ubuntu20 04-2020-10-25-16-25-45](https://user-images.githubusercontent.com/32956424/97103574-e460cf80-16df-11eb-85aa-fcddab224f25.png)
+
