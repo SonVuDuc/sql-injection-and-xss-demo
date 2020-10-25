@@ -40,48 +40,53 @@ Truy cập vào địa chỉ http://localhost/phpmyadmin/ để kiếm tra MySQL
 
 ### Cài đặt Acunetix
 
+Pull repo bằng lệnh
+
+```
+git clone https://github.com/neolead/acunetix-linux.git
+```
+Login với quyền **root**, chạy lệnh sau để cài Acunetix:
+
+```
+apt install unzip curl ; rm -rf /tmp/acun*
+apt install libxdamage1 libgtk-3-0 libasound2 libnss3 libxss1 libx11-xcb1 -y
+cd /tmp; rm master.zip -f
+curl -L -o master.zip http://github.com/neolead/acunetix-linux/zipball/master/
+unzip master.zip
+cd `ls|grep neolead` && cat acupatch* > acupatch.tgz
+tar -zxvf acupatch.tgz
+chmod +x ./acunetix_trial.sh
+./acunetix_trial.sh
+service acunetix_trial stop
+chmod 0755 patch_awvs
+cp patch_awvs /home/acunetix/.acunetix_trial/v_190515149/scanner/
+su - acunetix -c "/home/acunetix/.acunetix_trial/v_190515149/scanner/patch_awvs"
+cd /tmp;rm -rf /tmp/acu*
+service acunetix_trial stop
+chattr +i /home/acunetix/.acunetix_trial/data/license/license_info.json
+service acunetix_trial start
+curl -k https://127.0.0.1:13443
+```
+Sau khi cài đặt xong, truy cập vào Acunetix qua địa chỉ https://127.0.0.1:13443
+
+![ubuntu20 04-2020-10-25-15-21-12](https://user-images.githubusercontent.com/32956424/97102148-cb532100-16d5-11eb-979a-4447d5106574.png)
+
+
 ### Cài đặt Burp Suite
 
+Burp Suite được viết bằng ngôn ngữ Java. Do đó, máy tính cần được cài đặt Java nếu muốn sử dụng Burp Suite
+
+Nếu máy tính chưa được cài đặt Java, chạy lệnh sau
+
+```
+sudo apt install default-jre
+sudo apt install default-jdk
+```
+
+Truy cập vào link http://portswigger.net/burp/download.html để download Burp Suite. Sau khi download, chạy file .JAR này để bắt đầu.
+
+
+
 ### 2.2. Demo SQL Injection
-
-Tiến hành pull web mẫu trên github bằng lệnh 
-
-```
-git clone https://github.com/FrancescoBorzi/sql-injection-demo.git
-```
-Truy cập vào trang chủ thông qua địa chỉ http://localhost/sql-injection-demo/index.php
-
-![Screenshot from 2020-10-18 16-26-15](https://user-images.githubusercontent.com/32956424/96363446-ab17e500-115e-11eb-9625-53e14ee45320.png)
-
-Đăng nhập thông qua mục **Standard Login**, chọn phần **Vulnerable**
-
-![Screenshot from 2020-10-18 16-28-02](https://user-images.githubusercontent.com/32956424/96363487-ed412680-115e-11eb-86a0-392b5a69db13.png)
-
-Trang web mẫu sẽ hiện ra truy vấn MySQL để tiện cho việc xem xét SQL Injection
-
-![Screenshot from 2020-10-18 16-28-02](https://user-images.githubusercontent.com/32956424/96363487-ed412680-115e-11eb-86a0-392b5a69db13.png)
-
-#### Case 1: Đăng nhập với username mà không cần password
-
-Nếu hacker biết được username của một user, có thể là người dùng bình thường hoặc quản trị viên. Với lỗ hổng SQL Injection, hacker có thể dễ dàng đăng nhập với username đã biết mà không cần password.
-
-Ví dụ username đã biết ở đây là **admin**. Hacker sẽ truyền vào chuỗi ```' OR '1'='1'; -- ```
-
-![Screenshot from 2020-10-18 16-32-49](https://user-images.githubusercontent.com/32956424/96363590-96881c80-115f-11eb-9b4a-8820c34ed12d.png)
-
-Hacker đã đăng nhập thành công với tư cách là admin. Trong mục **Query Executed** thấy rằng truy vấn đã thực hiện việc truy vấn. Điều kiện password là ```''``` hoặc ```'1'='1'```. Dễ dàng nhận thấy điều kiện ```'1'='1'``` luôn đúng. Ngoài ra toán tử ```--``` ở cuối có tác dụng khiến hệ thống bỏ qua mọi thứ đằng sau dấu ```--```. Khiến hacker dễ dàng đăng nhập với username đã biết
-
-#### Case 2: Đăng nhập mà không biết username và password
-
-Thông thường hacker sẽ sử dụng tool quét lỗ hổng SQL Injection trên nhiều trang web khác nhau. Khi đã xác định được trang web có lỗ hổng. Hacker sẽ bắt đầu khai thác lỗ hổng
-
-Trong trường hợp hacker không biết trước username như **case 1**. Hacker sẽ sử dụng truy vấn ```' OR '1'='1'; -- ```
-
-![Screenshot from 2020-10-18 16-42-37](https://user-images.githubusercontent.com/32956424/96363856-f92de800-1160-11eb-8b74-0f5684581f30.png)
-
-Đăng nhập thành công với username **' or '1'='1'; -- **
-
-![Screenshot from 2020-10-18 16-41-14](https://user-images.githubusercontent.com/32956424/96363827-ca177680-1160-11eb-84c2-97f98c64cd20.png)
-
 
 ### 2.3. Demo Cross-site Scripting 
